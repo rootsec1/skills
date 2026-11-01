@@ -1,0 +1,7 @@
+interface:
+  display_name: "One way to do one thing"
+  short_description: "Readable code, cohesive files, one owner per responsibility"
+  default_prompt: "Use $one-way-code to keep this change readable, organized, and small, reusing existing code and preserving useful behavior."
+
+policy:
+  allow_implicit_invocation: true

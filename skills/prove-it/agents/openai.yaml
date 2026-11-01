@@ -1,0 +1,7 @@
+interface:
+  display_name: "Prove it"
+  short_description: "Test assumptions and verify fixes with focused evidence"
+  default_prompt: "Use $prove-it to check the assumptions behind this change and verify its outcome with the smallest reliable checks."
+
+policy:
+  allow_implicit_invocation: true
