@@ -1,6 +1,6 @@
-# Skills
+# Agent setup
 
-My custom coding skills, plus commands to install the upstream skills I use.
+My global instructions, custom coding skills, and upstream skill installs.
 The goal is simple, readable code and evidence that changes work.
 
 ## Install
@@ -24,6 +24,8 @@ as Eve and PromptScript; those require project-local setup. See the
 ```sh
 make install-custom    # Only the custom skills in this checkout
 make install-upstream  # Only the selected upstream skills below
+make install-config    # Only global instructions and compatibility links
+make test              # Check the config installer in a temporary directory
 ```
 
 Rerunning a target replaces installed skills with the same names. Custom skills
@@ -43,20 +45,31 @@ Edit these under `skills/`, then run `make install-custom`. The installed copies
 are separate from the checkout. Each skill uses the portable `SKILL.md` format;
 the optional `agents/openai.yaml` files provide Codex UI metadata only.
 
-To make the intended usage explicit in an assistant's instructions:
+## Global instructions
 
-```text
-Apply one-way-code when writing or reviewing code. Readability takes priority
-over fewer lines or files. Apply prove-it for debugging, performance measurements,
-changes to shared contracts or state, and recurring defects. Keep checks
-proportionate to the change.
-```
+[AGENTS.md](AGENTS.md) holds my shared instructions. `make install` copies it to
+`~/.agents/AGENTS.md` and links the standard global instruction files below to it.
 
-The installer does not replace your existing agent instructions.
+| Assistant | Instruction file |
+| --- | --- |
+| [Codex](https://developers.openai.com/codex/guides/agents-md) | `~/.codex/AGENTS.md` |
+| [Claude Code](https://code.claude.com/docs/en/memory) | `~/.claude/CLAUDE.md` |
+| [Gemini CLI](https://geminicli.com/docs/cli/gemini-md/) | `~/.gemini/GEMINI.md` |
+| [OpenCode](https://opencode.ai/docs/rules/) | `~/.config/opencode/AGENTS.md` |
+
+Existing files or conflicting links are moved to timestamped `.backup.*` files
+beside the originals. Repeating an unchanged install creates no extra backups.
+Edit the repo's `AGENTS.md`, then run `make install-config` to apply it.
+
+These are the default locations. Other assistants or custom config directories
+need their own instruction import or link to `~/.agents/AGENTS.md`; sharing the
+skills directory does not mean every assistant reads the same global rules file.
+The repo restores instructions and skills. Models, permissions, MCP connections,
+app-bundled plugins, credentials, and project-specific settings remain separate.
 
 ## Upstream skills
 
-These are the nine upstream skills installed when this repo was created. Some
+These are the selected upstream skills I use. Some
 are vendor-maintained; others are community projects. Their code stays upstream.
 The Makefile selects individual skills, not entire collections.
 
@@ -67,6 +80,7 @@ The Makefile selects individual skills, not entire collections.
 | impeccable | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) |
 | ponytail | [dietrichgebert/ponytail](https://github.com/dietrichgebert/ponytail) |
 | shadcn | [shadcn-ui/ui](https://github.com/shadcn-ui/ui) |
+| stageshow | [benjitaylor/skills](https://github.com/benjitaylor/skills/tree/main/stageshow) |
 | turborepo | [vercel/turborepo](https://github.com/vercel/turborepo) |
 | unslop | [cursor/plugins](https://github.com/cursor/plugins/tree/main/pstack/skills/unslop) |
 | use-railway | [railwayapp/railway-skills](https://github.com/railwayapp/railway-skills) |
