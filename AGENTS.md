@@ -15,6 +15,16 @@ For debugging, performance measurements, changes to shared contracts or state, a
 - For design and frontend work, use `impeccable` before and throughout implementation to guide visual direction, layout, typography, interactions, accessibility, and polish.
 - Use `stageshow` alongside `impeccable` for mocked product UI, marketing illustrations, and animated demos or cursor walkthroughs.
 
+## Product UI and UX
+
+- Design for a first-time external user who has not read our chat, specs, or code. Use familiar terms and controls; do not assume internal context.
+- Make the main task, current state, and next action obvious through layout, hierarchy, and clear labels. Fix confusing flows before adding explanatory copy.
+- Keep visible text to what helps users decide, act, or recover. Remove redundant headings, introductions, helper text, and feature explanations. Say each thing once; avoid paragraphs explaining obvious controls.
+- Use concise, specific action labels and consistent user-facing terms. Keep implementation details, internal jargon, and developer commentary out of the interface unless they affect the user's decision.
+- Use sensible defaults and reveal advanced options or secondary explanations when needed. Keep essential requirements and consequences visible before the user acts.
+- Preserve accessible labels, meaningful status feedback, and actionable errors. Brevity must not create vague buttons, unexplained icons, or instructions available only in placeholders or tooltips.
+- Before finishing UI work, walk the primary flow as a new user. Check that they can tell what this is, what to do next, and what happened without a walkthrough. Remove text that adds no decision value and fix interactions that still need narration.
+
 ## Writing on my behalf
 
 - Whenever drafting or replying to people in Slack, email, or any other app, always apply `$unslop` before presenting or sending the message.
