@@ -21,6 +21,7 @@ For debugging, performance measurements, changes to shared contracts or state, a
 - Use the right components for the task: tabs, tables, badges, toggles, progress indicators, and other familiar controls instead of walls of text. Follow the existing design system.
 - Keep copy short and useful. Preserve clear labels, accessible controls, and actionable errors; cut jargon and repeated explanations.
 - Do not add decorative footers, filler sections, or unnecessary explanatory banners.
+- After implementation, inspect the rendered UI and walk the main flow. Use `impeccable` and `unslop` to remove AI tells in the design and copy: generic layouts, repetitive cards, filler text, and unnatural phrasing. Fix what you find before finishing.
 
 ## Writing on my behalf
 
